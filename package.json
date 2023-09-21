@@ -2,8 +2,14 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "dev:guest": "vite --config ./vite.guest.config.js",
+        "dev:user": "vite --config ./vite.user.config.js",
+        "dev:admin": "vite --config ./vite.admin.config.js",
+        "dev": "dev:guest && dev:user && dev:admin",
+        "build:guest": "vite build --config ./vite.guest.config.js",
+        "build:user": "vite build --config ./vite.user.config.js",
+        "build:admin": "vite build --config ./vite.admin.config.js",
+        "build": "build:guest && build:user && build:admin"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
