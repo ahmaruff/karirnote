@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
+            $table->date('date');
             $table->string('description',400)->nullable();
             $table->string('project_objective',400);
             $table->string('my_contribution', 400);
