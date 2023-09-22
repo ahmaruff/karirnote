@@ -77,6 +77,11 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        try{
+            $project->delete();
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }
