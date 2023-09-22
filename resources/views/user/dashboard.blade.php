@@ -13,7 +13,10 @@
         </p>
     </div>
     <div class="px-6 py-10 mx-auto my-3 bg-white shadow lg:my-6 rounded-xl">
-        <h1 class="text-2xl font-bold lg:text-4xl">Target Pencapaian</h1>
+        <div class="flex flex-col items-start md:items-center md:justify-between md:flex-row">
+            <h1 class="text-2xl font-bold lg:text-4xl">Target Pencapaian</h1>
+            <x-modal.target-create/>
+        </div>
         <section>
             <ul>
                 <li>
@@ -23,7 +26,6 @@
                                 <p>Saya Ingin menjadi CTO Start Up di usia 28 tahun</p>
                             </div>
                             <div class="flex flex-row gap-3">
-                                <x-modal.target-create/>
                                 <x-modal.target-edit/>
                                 <x-modal.target-delete/>
                             </div>
