@@ -1,12 +1,22 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use App\Http\Controllers\Controller;
 use App\Models\Target;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Exception;
 
 class TargetController extends Controller
 {
+    private $user_id;
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            $this->user_id = Auth::user()->id;
+            return $next($request);
+        });
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -28,7 +38,19 @@ class TargetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'user_id' => ['required',],
+            'target' => ['required', 'string', 'max:300'],
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        try{
+            Target::create($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
