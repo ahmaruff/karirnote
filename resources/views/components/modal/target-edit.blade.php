@@ -1,6 +1,6 @@
 @props(['id', 'target'])
 
-<x-modal.modal-icon icon="bi-pencil-square" iconcolor="text-amber-400" iconcolorhover="text-amber-500">
+<x-modal.modal-icon icon="bi-pencil-square" iconcolor="text-yellow-400" iconcolorhover="text-yellow-600">
     <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
         Edit goal/target kamu
     </h3>

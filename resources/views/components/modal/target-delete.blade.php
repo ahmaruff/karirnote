@@ -1,5 +1,5 @@
 @props(['id', 'target'])
-<x-modal.modal-icon icon="bi-trash" iconcolor="text-rose-400" iconcolorhover="text-rose-500">
+<x-modal.modal-icon icon="bi-trash" iconcolor="text-rose-400" iconcolorhover="text-rose-600">
     <div>
         <div class="flex items-center justify-center">
             <i class="text-2xl text-rose-500 bi bi-trash"></i>
