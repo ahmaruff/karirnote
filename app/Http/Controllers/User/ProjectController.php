@@ -4,7 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use Auth;
 use Illuminate\Http\Request;
+use Exception;
 
 class ProjectController extends Controller
 {
@@ -21,7 +23,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.project.create');
     }
 
     /**
@@ -29,7 +31,23 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'title' => ['required', 'string', 'max:255'],
+            'user_id' => ['required'],
+            'date' => ['required', 'date'],
+            'description' => ['required', 'string', 'max:400'],
+            'project_objective' => ['required', 'string', 'max:400'],
+            'my_contribution' => ['required', 'string', 'max:400'],
+            'result' => ['required', 'string', 'max:400'],
+        ];
+        $validatedData = $request->validate($rules);
+
+        try{
+            Project::create($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**

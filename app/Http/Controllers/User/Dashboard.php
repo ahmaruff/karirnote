@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use App\Models\Target;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,11 +22,13 @@ class Dashboard extends Controller
     public function index(): View
     {
         $target = Target::orderBy('created_at', 'DESC')->limit(10)->get(['id', 'target'])->toArray();
+        $projects = Project::all()->toArray();
         // $target = Target::all()->toArray();
         $data = [
             'name' => $this->user->name,
             'about' => $this->user->about,
-            'target' => $target
+            'target' => $target,
+            'projects' => $projects,
         ];
 
         return view('user.dashboard', $data);
