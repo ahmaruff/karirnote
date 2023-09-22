@@ -53,8 +53,53 @@
                 Tambah
             </a>
         </div>
+
+        @if (empty($projects))
+        <div class="py-6 mx-auto my-3 text-center border border-gray-200 rounded-lg">
+            <h1 class="mb-3 font-bold hover:text-gray-400">Kamu belum memiliki capaian proyek</h1>
+            <a href="{{route('user.project.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
+                Tambah
+            </a>
+        </div>
+        @else
         <section>
-            @dump($projects)
+            @foreach ($projects as $project)
+            <section class="p-3 my-3 bg-gray-100 rounded-lg">
+                <div class="flex flex-row justify-between">
+                    <h3 class="text-xl font-bold text-gray-400">
+                        {{ \Carbon\Carbon::parse($project['date'], 'Asia/Jakarta')->format('d F Y')}}
+                    </h3>
+                    <div class="flex flex-row gap-3">
+                        <a href="{{route('user.project.edit', $project['id'])}}">
+                            <i class="text-lg text-yellow-400 bi bi-pencil-square hover:text-yellow-600"></i>
+                        </a>
+                        <x-modal.project-delete id="{{$project['id']}}" />
+                    </div>
+                </div>
+                <hr class="my-2">
+                <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
+                    <div>
+                        <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
+                            Proyek
+                        </h4>
+                        <p>{{ $project['project_background'] }}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
+                            Kontribusi
+                        </h4>
+                        <p>{{ $project['my_contribution'] }}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
+                            Dampak
+                        </h4>
+                        <p>{{ $project['impact'] }}</p>
+                </div>
+                </div>
+            </section>
+            @endforeach
         </section>
+        @endif
     </div>
 @endsection
