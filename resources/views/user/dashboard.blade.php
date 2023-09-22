@@ -80,21 +80,21 @@
                 <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
                     <div>
                         <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
-                            Proyek
+                            Proyek (background)
                         </h4>
-                        <p>{{ $project['project_background'] }}</p>
+                        <p class="text-gray-800 hover:text-black">{{ $project['project_background'] }}</p>
                     </div>
                     <div>
                         <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
                             Kontribusi
                         </h4>
-                        <p>{{ $project['my_contribution'] }}</p>
+                        <p class="text-gray-800 hover:text-black">{{ $project['my_contribution'] }}</p>
                     </div>
                     <div>
                         <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
                             Dampak
                         </h4>
-                        <p>{{ $project['impact'] }}</p>
+                        <p class="text-gray-800 hover:text-black">{{ $project['impact'] }}</p>
                 </div>
                 </div>
             </section>
