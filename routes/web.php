@@ -33,8 +33,9 @@ Route::get('/admin', function(){
 })->middleware(['auth', 'role:admin'])->name('admin.dashboard');
 
 
-Route::get('/user', function(){
-    return view('user.dashboard');
-})->middleware(['auth', 'role:user'])->name('user.dashboard');
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/user',[\App\Http\Controllers\User\Dashboard::class, 'index'])->name('user.home');
+    Route::get('/user/dashboard',[\App\Http\Controllers\User\Dashboard::class, 'index'])->name('user.dashboard');
+});
 
 require __DIR__.'/auth.php';
