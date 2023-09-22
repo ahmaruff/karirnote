@@ -11,11 +11,9 @@ class Project extends Model
 
     protected $fillable = [
         'user_id',
-        'title',
         'date',
-        'description',
-        'project_objective',
+        'project_background',
         'my_contribution',
-        'result',
+        'impact',
     ];
 }

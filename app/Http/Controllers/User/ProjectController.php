@@ -32,13 +32,11 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'title' => ['required', 'string', 'max:255'],
             'user_id' => ['required'],
             'date' => ['required', 'date'],
-            'description' => ['required', 'string', 'max:400'],
-            'project_objective' => ['required', 'string', 'max:400'],
+            'project_background' => ['required', 'string', 'max:400'],
             'my_contribution' => ['required', 'string', 'max:400'],
-            'result' => ['required', 'string', 'max:400'],
+            'impact' => ['required', 'string', 'max:400'],
         ];
         $validatedData = $request->validate($rules);
 
