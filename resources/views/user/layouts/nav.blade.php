@@ -1,5 +1,5 @@
 <nav x-data="{ isOpen: false }" class="relative bg-white shadow">
-    <div class="container px-6 py-4 mx-auto">
+    <div class="container max-w-screen-xl px-6 py-4 mx-auto">
         <div class="lg:flex lg:items-center lg:justify-between">
             <div class="flex items-center justify-between">
                 <a href="#">

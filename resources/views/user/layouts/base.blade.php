@@ -16,8 +16,10 @@
     <div>
         @include('user.layouts.nav')
     </div>
-    <div class="m-3 lg:m-6">
-        @yield('content')
+    <div class="max-w-screen-lg mx-auto">
+        <div class="m-3 lg:m-6">
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>
