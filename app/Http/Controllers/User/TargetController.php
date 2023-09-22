@@ -94,6 +94,11 @@ class TargetController extends Controller
      */
     public function destroy(Target $target)
     {
-        //
+        try{
+            $target->delete();
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }

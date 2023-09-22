@@ -38,6 +38,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user/dashboard',[\App\Http\Controllers\User\Dashboard::class, 'index'])->name('user.dashboard');
     Route::post('/user/target',[\App\Http\Controllers\User\TargetController::class, 'store'])->name('user.target.store');
     Route::put('/user/target/{target}',[\App\Http\Controllers\User\TargetController::class, 'update'])->name('user.target.update');
+    Route::delete('/user/target/{target}',[\App\Http\Controllers\User\TargetController::class, 'destroy'])->name('user.target.destroy');
 });
 
 require __DIR__.'/auth.php';

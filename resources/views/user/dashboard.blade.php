@@ -37,7 +37,7 @@
                             </div>
                             <div class="flex flex-row gap-3">
                                 <x-modal.target-edit id="{{$target_item['id']}}" target="{{$target_item['target']}}"/>
-                                <x-modal.target-delete/>
+                                <x-modal.target-delete id="{{$target_item['id']}}"/>
                             </div>
                         </div>
                     </div>
