@@ -36,6 +36,7 @@ Route::get('/admin', function(){
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user',[\App\Http\Controllers\User\Dashboard::class, 'index'])->name('user.home');
     Route::get('/user/dashboard',[\App\Http\Controllers\User\Dashboard::class, 'index'])->name('user.dashboard');
+    Route::post('/user/target',[\App\Http\Controllers\User\TargetController::class, 'store'])->name('user.target.store');
 });
 
 require __DIR__.'/auth.php';
