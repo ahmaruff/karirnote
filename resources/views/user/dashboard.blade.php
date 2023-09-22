@@ -20,18 +20,20 @@
         <section>
             @if (empty($target))
             <div class="py-6 mx-auto my-3 text-center border border-gray-200 rounded-lg">
-                <h1 class="font-bold hover:text-gray-400 mb-3">Kamu tidak punya target</h1>
+                <h1 class="mb-3 font-bold hover:text-gray-400">Kamu tidak punya target</h1>
                 <x-modal.target-create-button/>
             </div>
             @endif
 
             <ul>
-            @foreach ($target as $targetitem)
+            @foreach ($target as $target_item)
                 <li>
                     <div class="p-3 my-3 bg-gray-100 rounded-lg">
                         <div class="flex flex-col md:flex-row">
                             <div class="grow">
-                                <p>{{$targetitem}}</p>
+                                <p>
+                                    {{$target_item['target']}}
+                                </p>
                             </div>
                             <div class="flex flex-row gap-3">
                                 <x-modal.target-edit/>
