@@ -74,7 +74,19 @@ class TargetController extends Controller
      */
     public function update(Request $request, Target $target)
     {
-        //
+        $rules = [
+            // 'id' => ['required',],
+            'target' => ['required', 'string', 'max:300'],
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        try{
+            $target->update($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
