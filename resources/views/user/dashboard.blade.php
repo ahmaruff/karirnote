@@ -6,24 +6,32 @@
         </h1>
         <hr class="my-3">
         <h2 class="text-xl capitalize lg:text-3xl">
-            {{ Auth::user()->name }}
+            {{ $name }}
         </h2>
         <p class="text-lg text-gray-500 lg:text-xl">
-            {{ Auth::user()->about }}
+            {{ $about }}
         </p>
     </div>
     <div class="px-6 py-10 mx-auto my-3 bg-white shadow lg:my-6 rounded-xl">
         <div class="flex flex-col items-start md:items-center md:justify-between md:flex-row">
             <h1 class="text-2xl font-bold lg:text-4xl">Target Pencapaian</h1>
-            <x-modal.target-create/>
+            <x-modal.target-create-button/>
         </div>
         <section>
+            @if (empty($target))
+            <div class="py-6 mx-auto my-3 text-center border border-gray-200 rounded-lg">
+                <h1 class="font-bold hover:text-gray-400 mb-3">Kamu tidak punya target</h1>
+                <x-modal.target-create-button/>
+            </div>
+            @endif
+
             <ul>
+            @foreach ($target as $targetitem)
                 <li>
                     <div class="p-3 my-3 bg-gray-100 rounded-lg">
                         <div class="flex flex-col md:flex-row">
                             <div class="grow">
-                                <p>Saya Ingin menjadi CTO Start Up di usia 28 tahun</p>
+                                <p>{{$targetitem}}</p>
                             </div>
                             <div class="flex flex-row gap-3">
                                 <x-modal.target-edit/>
@@ -32,11 +40,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="p-3 my-3 bg-gray-100 rounded-lg">
-                        <p>Saya Ingin menjadi CTO Start Up di usia 28 tahun</p>
-                    </div>
-                </li>
+            @endforeach
             </ul>
         </section>
     </div>
