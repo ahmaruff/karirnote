@@ -1,4 +1,4 @@
-<x-modal.modal-icon icon="bi-plus-circle" iconcolor="text-blue-400" iconcolorhover="text-blue-500" label="Tambah">
+<x-modal.modal-icon icon="bi-plus-circle" iconcolor="text-blue-400" iconcolorhover="text-blue-500">
     <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
         Tambah target pencapaian kamu
     </h3>
