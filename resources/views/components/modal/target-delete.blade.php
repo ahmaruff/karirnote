@@ -1,4 +1,4 @@
-@props(['id'])
+@props(['id', 'target'])
 <x-modal.modal-icon icon="bi-trash" iconcolor="text-rose-400" iconcolorhover="text-rose-500">
     <div>
         <div class="flex items-center justify-center">
@@ -6,9 +6,11 @@
         </div>
 
         <div class="mt-2 text-center">
-            <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">Hapus Target</h3>
-            <p class="mt-2 text-sm text-gray-500">
+            <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
                 Yakin mau menghapus target ini?
+            </h3>
+            <p class="mt-2 text-sm text-gray-500">
+                {{ $target }}
             </p>
         </div>
     </div>
