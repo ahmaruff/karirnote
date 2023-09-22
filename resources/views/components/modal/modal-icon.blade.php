@@ -1,12 +1,9 @@
-@props(['icon', 'iconcolor', 'iconcolorhover' => '', 'label' => ''])
+@props(['icon', 'iconcolor' => 'text-black', 'iconcolorhover' => 'text-gray-600'])
 
 <div x-data="{ isOpen: false }" class="relative flex justify-center">
 
-    <button @click="isOpen = true" class="flex flex-row items-center gap-1">
+    <button @click="isOpen = true" class="inline-block">
         <i {{ $attributes->merge(['class' => 'text-lg bi '.$icon.' '.$iconcolor.' hover:'.$iconcolorhover]) }}></i>
-        <span {{ $attributes->merge(['class' => $iconcolor.' hover:'.$iconcolorhover]) }}>
-            {{$label}}
-        </span>
     </button>
 
     <div x-show="isOpen"
