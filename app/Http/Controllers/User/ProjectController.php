@@ -61,7 +61,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $data = [
+            'project' => $project,
+        ];
+        return view('user.project.edit', $data);
     }
 
     /**
@@ -69,7 +72,22 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $rules = [
+            'user_id' => ['required'],
+            'date' => ['required', 'date'],
+            'project_background' => ['required', 'string', 'max:400'],
+            'my_contribution' => ['required', 'string', 'max:400'],
+            'impact' => ['required', 'string', 'max:400'],
+        ];
+        $validatedData = $request->validate($rules);
+
+        try{
+            $project->update($validatedData);
+            // Project::create($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
