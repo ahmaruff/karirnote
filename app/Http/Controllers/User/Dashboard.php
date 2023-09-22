@@ -20,7 +20,7 @@ class Dashboard extends Controller
     }
     public function index(): View
     {
-        $target = Target::orderBy('created_at', 'DESC')->limit(10)->get(['user_id', 'target'])->toArray();
+        $target = Target::orderBy('created_at', 'DESC')->limit(10)->get(['id', 'target'])->toArray();
         // $target = Target::all()->toArray();
         $data = [
             'name' => $this->user->name,
