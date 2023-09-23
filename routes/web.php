@@ -41,6 +41,9 @@ Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(f
     Route::delete('target/{target}',[\App\Http\Controllers\User\TargetController::class, 'destroy'])->name('target.destroy');
     Route::resource('project','\App\Http\Controllers\User\ProjectController')->except(['index']);
     Route::resource('skill','\App\Http\Controllers\User\SkillController')->except(['index', 'show']);
+    Route::post('brag',[\App\Http\Controllers\User\BragController::class, 'store'])->name('brag.store');
+    Route::put('brag/{brag}',[\App\Http\Controllers\User\BragController::class, 'update'])->name('brag.update');
+    Route::delete('brag/{brag}',[\App\Http\Controllers\User\BragController::class, 'destroy'])->name('brag.destroy');
 });
 
 require __DIR__.'/auth.php';
