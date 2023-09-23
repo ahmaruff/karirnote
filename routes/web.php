@@ -44,6 +44,10 @@ Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(f
     Route::post('brag',[\App\Http\Controllers\User\BragController::class, 'store'])->name('brag.store');
     Route::put('brag/{brag}',[\App\Http\Controllers\User\BragController::class, 'update'])->name('brag.update');
     Route::delete('brag/{brag}',[\App\Http\Controllers\User\BragController::class, 'destroy'])->name('brag.destroy');
+
+    // Profile
+    Route::get('profile', [\App\Http\Controllers\User\Dashboard::class, 'profile'])->name('profile');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 require __DIR__.'/auth.php';

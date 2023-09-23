@@ -7,6 +7,7 @@ use App\Models\Brag;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Models\Target;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -38,5 +39,13 @@ class Dashboard extends Controller
         ];
 
         return view('user.dashboard', $data);
+    }
+
+    public function profile(): View
+    {
+        $data = [
+            'user' => $this->user,
+        ];
+        return view('user.profile', $data);
     }
 }

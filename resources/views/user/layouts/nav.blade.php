@@ -52,7 +52,7 @@
                             x-transition:leave-end="opacity-0 scale-90"
                             class="w-48 py-2 mt-2 bg-white rounded-md lg:shadow-xl lg:origin-top-right lg:z-20 lg:right-0 lg:absolute"
                         >
-                            <a href="{{route('profile.edit')}}" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Profile </a>
+                            <a href="{{route('user.profile')}}" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Profile </a>
                             <a href="#" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Your projects </a>
                             <a href="#" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Help </a>
                             <a href="#" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Settings </a>
