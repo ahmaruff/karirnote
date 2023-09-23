@@ -17,7 +17,7 @@
         <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
             <span class="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">&#8203;</span>
 
-            <div class="relative inline-block p-3 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-sm sm:p-6 sm:align-middle">
+            <div class="relative inline-block w-full p-3 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-sm md:max-w-md sm:p-6 sm:align-middle">
                 <div class="flex flex-row justify-end">
                     <button type="button" @click="isOpen = false" class="p-3 text-sm font-medium text-gray-700 ">
                         <i class="bi bi-x-lg"></i>
