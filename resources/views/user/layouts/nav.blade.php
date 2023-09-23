@@ -3,7 +3,7 @@
         <div class="lg:flex lg:items-center lg:justify-between">
             <div class="flex items-center justify-between">
                 <a href="#">
-                    <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                    <img class="w-auto h-5" src="/assets/img/logo-h-trans.svg" alt="logo">
                 </a>
 
                 <!-- Mobile menu button -->
