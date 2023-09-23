@@ -65,4 +65,14 @@
     </div>
 </div>
 
+<div class="w-full px-6 py-10 mx-auto my-3 bg-white shadow lg:my-6 rounded-xl">
+    <h1 class="text-xl font-bold lg:text-2xl">Hapus Akun?</h1>
+    <p class="text-gray-500 text-md md:w-3/4">
+        Ketika akunmu dihapus, seluruh data yang berkaitan dengan akunmu akan terhapus selamanya. Tolong isi password anda untuk mengonfirmasi bahwa kamu memang ingin menghapus akun
+    </p>
+    <div class="flex flex-row justify-start mt-3">
+        <x-modal.account-delete-button />
+    </div>
+</div>
+
 @endsection
