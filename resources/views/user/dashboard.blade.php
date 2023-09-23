@@ -5,10 +5,10 @@
             Lembar Pencapaian Karier
         </h1>
         <hr class="my-3">
-        <h2 class="text-xl capitalize lg:text-3xl">
+        <h2 class="text-xl capitalize lg:text-3xl font-semibold">
             {{ $name }}
         </h2>
-        <p class="text-lg text-gray-500 lg:text-xl">
+        <p class="text-sm text-gray-500 lg:text-md">
             {{ $about }}
         </p>
     </div>
