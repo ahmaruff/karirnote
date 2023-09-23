@@ -37,7 +37,7 @@
                                 <img src="/assets/img/person-circle.svg" alt="" class="object-cover w-full h-full">
                             </div>
 
-                            <h3 class="mx-2 text-gray-700 capitalize lg:hidden">{{$name}}</h3>
+                            <h3 class="mx-2 text-gray-700 capitalize lg:hidden">{{Auth::user()->name}}</h3>
                         </button>
 
 
@@ -50,12 +50,12 @@
                             x-transition:leave="transition ease-in duration-100"
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0 scale-90"
-                            class="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
+                            class="w-48 py-2 mt-2 bg-white rounded-md lg:shadow-xl lg:origin-top-right lg:z-20 lg:right-0 lg:absolute"
                         >
-                            <a href="{{route('profile.edit')}}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Profile </a>
-                            <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Your projects </a>
-                            <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Help </a>
-                            <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Settings </a>
+                            <a href="{{route('profile.edit')}}" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Profile </a>
+                            <a href="#" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Your projects </a>
+                            <a href="#" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Help </a>
+                            <a href="#" class="block px-4 py-3 text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Settings </a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"> Sign Out </a>
