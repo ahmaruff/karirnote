@@ -102,4 +102,25 @@
         </section>
         @endif
     </div>
+
+    <div class="px-6 py-10 mx-auto my-3 bg-white shadow lg:my-6 rounded-xl">
+        <div class="flex flex-col items-start md:items-center md:justify-between md:flex-row">
+            <h1 class="text-2xl font-bold lg:text-4xl">Skill/Keterampilan</h1>
+            <a href="{{route('user.project.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
+                Tambah
+            </a>
+        </div>
+
+        @if (empty($skills))
+        <div class="py-6 mx-auto my-3 text-center border border-gray-200 rounded-lg">
+            <h1 class="mb-3 font-bold hover:text-gray-400">Kamu belum memiliki keterampilan apapun</h1>
+            <a href="{{route('user.project.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
+                Tambah
+            </a>
+        </div>
+        @else
+        <section>
+        </section>
+        @endif
+    </div>
 @endsection
