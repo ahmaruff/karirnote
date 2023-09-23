@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('brags', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->date('date');
             $table->string('brag', 400);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();

@@ -29,7 +29,19 @@ class BragController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'user_id' => ['required'],
+            'date' => ['required', 'date'],
+            'description' => ['required', 'string', 'max:400'],
+        ];
+        $validatedData = $request->validate($rules);
+
+        try{
+            Brag::create($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
