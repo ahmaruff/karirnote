@@ -161,18 +161,15 @@
                 @foreach ($brags as $brag)
                 <section class="p-6 bg-gray-100 rounded-lg">
                     <h1 class="text-xl font-bold text-sky-600 hover:text-sky-400">
-                        {{ $brag['date'] }}
+                        {{ \Carbon\Carbon::parse($brag['date'], 'Asia/Jakarta')->format('d F Y')}}
                     </h1>
-                    <x-modal.brag-edit id="{{$brag['id']}}" brag="{{$brag['brag']}}" date="{{$brag['date']}}" />
                     <div>
                         <p class="break-words">
                             {{ $brag['brag'] }}
                         </p>
                     </div>
                     <div class="flex flex-row gap-3">
-                        <a href="{{route('user.skill.edit', $brag['id'])}}">
-                            <i class="text-lg text-yellow-400 bi bi-pencil-square hover:text-yellow-600"></i>
-                        </a>
+                        <x-modal.brag-edit id="{{$brag['id']}}" brag="{{$brag['brag']}}" date="{{$brag['date']}}" />
                         <x-modal.brag-delete id="{{$brag['id']}}" />
                     </div>
                 </section>
