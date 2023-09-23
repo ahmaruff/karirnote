@@ -153,9 +153,7 @@
         @if (empty($brags))
         <div class="py-6 mx-auto my-3 text-center border border-gray-200 rounded-lg">
             <h1 class="mb-3 font-bold hover:text-gray-400">Kamu belum memiliki capaian pribadi apapun</h1>
-            <a href="{{route('user.skill.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
-                Tambah
-            </a>
+            <x-modal.brag-create-button />
         </div>
         @else
         <section>
@@ -165,6 +163,7 @@
                     <h1 class="text-xl font-bold text-sky-600 hover:text-sky-400">
                         {{ $brag['date'] }}
                     </h1>
+                    <x-modal.brag-edit id="{{$brag['id']}}" brag="{{$brag['brag']}}" date="{{$brag['date']}}" />
                     <div>
                         <p class="break-words">
                             {{ $brag['brag'] }}
