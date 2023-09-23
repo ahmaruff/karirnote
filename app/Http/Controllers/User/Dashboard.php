@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brag;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Models\Target;
@@ -25,6 +26,7 @@ class Dashboard extends Controller
         $target = Target::orderBy('created_at', 'DESC')->limit(10)->get(['id', 'target'])->toArray();
         $projects = Project::all()->toArray();
         $skills = Skill::all()->toArray();
+        $brags = Brag::all()->toArray();
         // $target = Target::all()->toArray();
         $data = [
             'name' => $this->user->name,
@@ -32,6 +34,7 @@ class Dashboard extends Controller
             'target' => $target,
             'projects' => $projects,
             'skills' => $skills,
+            'brags' => $brags,
         ];
 
         return view('user.dashboard', $data);
