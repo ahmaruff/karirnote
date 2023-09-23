@@ -82,19 +82,19 @@
                         <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
                             Proyek (background)
                         </h4>
-                        <p class="text-gray-800 hover:text-black">{{ $project['project_background'] }}</p>
+                        <p class="text-gray-800 hover:text-black break-words">{{ $project['project_background'] }}</p>
                     </div>
                     <div>
                         <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
                             Kontribusi
                         </h4>
-                        <p class="text-gray-800 hover:text-black">{{ $project['my_contribution'] }}</p>
+                        <p class="text-gray-800 hover:text-black break-words">{{ $project['my_contribution'] }}</p>
                     </div>
                     <div>
                         <h4 class="text-lg font-bold text-sky-600 hover:text-sky-400">
                             Dampak
                         </h4>
-                        <p class="text-gray-800 hover:text-black">{{ $project['impact'] }}</p>
+                        <p class="text-gray-800 hover:text-black break-words">{{ $project['impact'] }}</p>
                 </div>
                 </div>
             </section>
@@ -106,7 +106,7 @@
     <div class="px-6 py-10 mx-auto my-3 bg-white shadow lg:my-6 rounded-xl">
         <div class="flex flex-col items-start md:items-center md:justify-between md:flex-row">
             <h1 class="text-2xl font-bold lg:text-4xl">Skill/Keterampilan</h1>
-            <a href="{{route('user.project.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
+            <a href="{{route('user.skill.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
                 Tambah
             </a>
         </div>
@@ -114,12 +114,32 @@
         @if (empty($skills))
         <div class="py-6 mx-auto my-3 text-center border border-gray-200 rounded-lg">
             <h1 class="mb-3 font-bold hover:text-gray-400">Kamu belum memiliki keterampilan apapun</h1>
-            <a href="{{route('user.project.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
+            <a href="{{route('user.skill.create')}}" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500">
                 Tambah
             </a>
         </div>
         @else
         <section>
+            <div class="grid grid-cols-1 gap-6 my-3 md:grid-cols-2 xl:grid-cols-3">
+                @foreach ($skills as $skill)
+                <section class="p-6 bg-gray-100 rounded-lg">
+                    <h1 class="text-xl font-bold text-sky-600 hover:text-sky-400">
+                        {{ $skill['skill'] }}
+                    </h1>
+                    <div>
+                        <p class="break-words">
+                            {{ $skill['description'] }}
+                        </p>
+                    </div>
+                    <div class="flex flex-row gap-3">
+                        <a href="{{route('user.skill.edit', $skill['id'])}}">
+                            <i class="text-lg text-yellow-400 bi bi-pencil-square hover:text-yellow-600"></i>
+                        </a>
+                        <x-modal.skill-delete id="{{$skill['id']}}" />
+                    </div>
+                </section>
+                @endforeach
+            </div>
         </section>
         @endif
     </div>

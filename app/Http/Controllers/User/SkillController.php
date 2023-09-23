@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Exception;
 
 class SkillController extends Controller
 {
@@ -21,7 +22,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.skill.create');
     }
 
     /**
@@ -29,7 +30,20 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'user_id' => ['required'],
+            'date' => ['required', 'date'],
+            'skill' => ['required', 'string'],
+            'description' => ['required', 'string', 'max:400'],
+        ];
+        $validatedData = $request->validate($rules);
+
+        try{
+            Skill::create($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -45,7 +59,10 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        $data = [
+            'skill' => $skill,
+        ];
+        return view('user.skill.edit', $data);
     }
 
     /**
@@ -53,7 +70,20 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
-        //
+        $rules = [
+            'user_id' => ['required'],
+            'date' => ['required', 'date'],
+            'skill' => ['required', 'string'],
+            'description' => ['required', 'string', 'max:400'],
+        ];
+        $validatedData = $request->validate($rules);
+
+        try{
+            $skill->update($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -61,6 +91,11 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        try{
+            $skill->delete();
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }

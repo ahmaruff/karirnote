@@ -40,6 +40,7 @@ Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(f
     Route::put('target/{target}',[\App\Http\Controllers\User\TargetController::class, 'update'])->name('target.update');
     Route::delete('target/{target}',[\App\Http\Controllers\User\TargetController::class, 'destroy'])->name('target.destroy');
     Route::resource('project','\App\Http\Controllers\User\ProjectController')->except(['index']);
+    Route::resource('skill','\App\Http\Controllers\User\SkillController')->except(['index', 'show']);
 });
 
 require __DIR__.'/auth.php';
