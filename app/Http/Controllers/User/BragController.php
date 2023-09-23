@@ -32,7 +32,7 @@ class BragController extends Controller
         $rules = [
             'user_id' => ['required'],
             'date' => ['required', 'date'],
-            'description' => ['required', 'string', 'max:400'],
+            'brag' => ['required', 'string', 'max:400'],
         ];
         $validatedData = $request->validate($rules);
 
@@ -65,7 +65,19 @@ class BragController extends Controller
      */
     public function update(Request $request, Brag $brag)
     {
-        //
+        $rules = [
+            'user_id' => ['required'],
+            'date' => ['required', 'date'],
+            'brag' => ['required', 'string', 'max:400'],
+        ];
+        $validatedData = $request->validate($rules);
+
+        try{
+            $brag->update($validatedData);
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -73,6 +85,11 @@ class BragController extends Controller
      */
     public function destroy(Brag $brag)
     {
-        //
+        try{
+            $brag->delete();
+            return redirect()->route('user.dashboard');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }
