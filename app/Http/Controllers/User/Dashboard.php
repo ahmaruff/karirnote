@@ -24,11 +24,10 @@ class Dashboard extends Controller
     }
     public function index(): View
     {
-        $target = Target::orderBy('created_at', 'DESC')->limit(10)->get(['id', 'target'])->toArray();
-        $projects = Project::all()->toArray();
-        $skills = Skill::all()->toArray();
-        $brags = Brag::all()->toArray();
-        // $target = Target::all()->toArray();
+        $target = Target::where('user_id','=',$this->user->id)->orderBy('created_at', 'DESC')->get(['id', 'target'])->toArray();
+        $projects = Project::where('user_id','=',$this->user->id)->orderBy('date', 'DESC')->get(['id', 'date', 'project_background', 'my_contribution', 'impact'])->toArray();
+        $skills = Skill::where('user_id','=',$this->user->id)->orderBy('date', 'DESC')->get(['id', 'date', 'skill', 'description'])->toArray();
+        $brags = Brag::where('user_id','=',$this->user->id)->orderBy('date', 'DESC')->get(['id', 'date', 'brag'])->toArray();
         $data = [
             'name' => $this->user->name,
             'about' => $this->user->about,
