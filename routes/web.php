@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/h', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
